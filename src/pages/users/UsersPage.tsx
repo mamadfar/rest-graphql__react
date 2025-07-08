@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import type { IUser } from "../../types/User.type";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_USERS } from "../../services/graphql/queries";
@@ -10,10 +9,6 @@ const UsersPage = () => {
     GET_USERS
   );
   const [deleteUserMutation] = useMutation(DELETE_USER);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   const handleDeleteUser = async (id: string) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
